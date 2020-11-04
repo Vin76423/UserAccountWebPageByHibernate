@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user-account-page</title>
+</head>
+<body>
+<!--    Users field:-->
+    <h2>Common data:</h2>
+    <ul>
+        <li>
+            <strong>Name: </strong>
+            <em th:text="${session.user.name}"></em>
+        </li>
+        <li>
+            <strong>Login: </strong>
+            <em th:text="${session.user.login}"></em>
+        </li>
+        <li>
+            <strong>Password: </strong>
+            <em th:text="${session.user.password}"></em>
+        </li>
+        <li>
+            <strong>Age: </strong>
+            <em th:text="${session.user.age == 0 ? '' : session.user.age}"></em>
+        </li>
+    </ul>
+
+    <br>
+<!--    Telephone field:-->
+    <h2>Telephone:</h2>
+    <ul th:if="${session.user.telephone != null}">
+        <li>
+            <strong>Telephone number: </strong>
+            <em th:text="${session.user.telephone.number}"></em>
+        </li>
+        <li>
+            <strong>Telephone provider: </strong>
+            <em th:text="${session.user.telephone.provider}"></em>
+        </li>
+        <li>
+            <strong>Telephone category: </strong>
+            <em th:text="${session.user.telephone.category}"></em>
+        </li>
+        <a th:href="@{/account/delete-telephone}">Delete</a>
+        <a th:href="@{/account/update-telephone}">Update</a>
+    </ul>
+
+    <br>
+<!--    Addresses field:-->
+    <h2>Addresses:</h2>
+    <div th:if="${session.user.addresses.size() != 0}">
+        <ul th:each="address : ${session.user.addresses}">
+            <li>
+                <strong>City: </strong>
+                <em th:text="${address.city}"></em>
+            </li>
+            <li>
+                <strong>Street: </strong>
+                <em th:text="${address.street}"></em>
+            </li>
+            <li>
+                <strong>House number: </strong>
+                <em th:text="${address.house == 0 ? '' : address.house}"></em>
+            </li>
+            <li>
+                <strong>Flat number: </strong>
+                <em th:text="${address.flat == 0 ? '' : address.flat}"></em>
+            </li>
+            <li>
+                <strong>Address category: </strong>
+                <em th:text="${address.category}"></em>
+            </li>
+            <a th:href="@{/account/delete-address?addressId={id}(id=${address.id})}">Delete</a>
+            <a th:href="@{/account/update-address?addressId={id}(id=${address.id})}">Update</a>
+        </ul>
+    </div>
+<!--    Actions links:-->
+    <a th:href="@{/account/set-telephone}">Set telephone</a>
+    <br>
+    <a th:href="@{/account/set-address}">Set address</a>
+    <br>
+    <a th:href="@{/account/delete-account}">Delete account</a>
+    <br>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>telephone-template</title>
+</head>
+<body>
+    <div th:fragment="fields">
+        <label th:for="${#ids.next('number')}">Number: </label>
+        <input type="text" th:field="*{number}">
+        <br>
+        <label th:for="${#ids.next('provider')}">Provider: </label>
+        <input type="text" th:field="*{provider}">
+        <br>
+        <label th:for="${#ids.next('category')}">Telephone category: </label>
+        <input type="text" th:field="*{category}">
+        <br>
+        <button>Send</button>
+    </div>
+</body>
+</html>

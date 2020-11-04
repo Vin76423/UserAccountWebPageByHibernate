@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>address-template</title>
+</head>
+<body>
+    <div th:fragment="fields">
+        <label th:for="${#ids.next('city')}">City: </label>
+        <input type="text" th:field="*{city}">
+        <br>
+        <label th:for="${#ids.next('street')}">Street: </label>
+        <input type="text" th:field="*{street}">
+        <br>
+        <label th:for="${#ids.next('house')}">House number: </label>
+        <input type="text" th:field="*{house}">
+        <br>
+        <label th:for="${#ids.next('flat')}">Flat number: </label>
+        <input type="text" th:field="*{flat}">
+        <br>
+        <label th:for="${#ids.next('category')}">Address category: </label>
+        <input type="text" th:field="*{category}">
+        <br>
+        <button>Send</button>
+    </div>
+</body>
+</html>

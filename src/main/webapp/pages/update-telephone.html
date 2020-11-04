@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>update-telephone-page</title>
+    </head>
+    <body>
+        <form th:action="@{/account/update-telephone}" method="post" th:object="${telephone}">
+            <input type="hidden" th:field="*{id}" th:value="${telephone.id}">
+            <div th:insert="~{telephone-template :: fields}"></div>
+        </form>
+    </body>
+</html>

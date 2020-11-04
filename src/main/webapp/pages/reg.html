@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>registration-page</title>
+</head>
+<body>
+    <strong th:if="${errorMassage != null}" th:text="${errorMassage}"></strong>
+
+    <form th:action="@{/home/reg}" method="post" th:object="${regUserDto}">
+
+        <label th:for="${#ids.next('userName')}">Name: </label>
+        <input type="text" th:field="*{userName}">
+        <br>
+        <label th:for="${#ids.next('userLogin')}">Login: </label>
+        <input type="text" th:field="*{userLogin}">
+        <br>
+        <label th:for="${#ids.next('userPassword')}">Password: </label>
+        <input type="password" th:field="*{userPassword}">
+        <br>
+        <label th:for="${#ids.next('userAge')}">Age: </label>
+        <input type="text" th:field="*{userAge}">
+        <br>
+        <br>
+
+        <label th:for="${#ids.next('telephoneNumber')}">Telephone number: </label>
+        <input type="text" th:field="*{telephoneNumber}">
+        <br>
+        <label th:for="${#ids.next('telephoneProvider')}">Telephone provider: </label>
+        <input type="text" th:field="*{telephoneProvider}">
+        <br>
+        <label th:for="${#ids.next('telephoneCategory')}">Telephone category: </label>
+        <input type="text" th:field="*{telephoneCategory}">
+        <br>
+        <br>
+
+        <label th:for="${#ids.next('addressCity')}">City: </label>
+        <input type="text" th:field="*{addressCity}">
+        <br>
+        <label th:for="${#ids.next('addressStreet')}">Street: </label>
+        <input type="text" th:field="*{addressStreet}">
+        <br>
+        <label th:for="${#ids.next('addressHouse')}">House number: </label>
+        <input type="text" th:field="*{addressHouse}">
+        <br>
+        <label th:for="${#ids.next('addressFlat')}">Flat number: </label>
+        <input type="text" th:field="*{addressFlat}">
+        <br>
+        <label th:for="${#ids.next('addressCategory')}">Address category: </label>
+        <input type="text" th:field="*{addressCategory}">
+        <br>
+        <br>
+
+        <button>Send</button>
+    </form>
+
+    <a th:href="@{/home}">Home</a>
+</body>
+</html>
